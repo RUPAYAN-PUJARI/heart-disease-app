@@ -29,7 +29,13 @@ def predict():
             float(request.form['thal'])
         ]
 
-        prediction = model.predict([data])[0]
+        column_names = ['age','sex','cp','trestbps','chol','fbs','restecg',
+                        'thalach','exang','oldpeak','slope','ca','thal']
+
+        import pandas as pd
+        df_input = pd.DataFrame([data], columns=column_names)
+
+        prediction = model.predict(df_input)[0]
 
         return render_template("result.html", result=int(prediction))
 
