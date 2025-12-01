@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Prediction Result</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+
+    <style>
+      body {
+        background: #f5f5f5;
+      }
+      .card {
+        margin-top: 80px;
+        border-radius: 15px;
+        padding: 20px;
+      }
+      h2 {
+        font-weight: 700;
+        text-align: center;
+      }
+    </style>
+  </head>
+
   <body>
-    <h2>Prediction Result</h2>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-5">
+          <div class="card shadow text-center">
+            {% if result == 1 %}
+            <h2 style="color: #d62828">⚠️ High Risk of Heart Disease</h2>
+            <p>Please consult a medical professional as soon as possible.</p>
+            {% else %}
+            <h2 style="color: #2a9d8f">✔️ Low Risk of Heart Disease</h2>
+            <p>You seem to be at low risk. Maintain a healthy lifestyle!</p>
+            {% endif %}
 
-    {% if result == 1 %}
-    <h3 style="color: red">High Risk of Heart Disease</h3>
-    {% else %}
-    <h3 style="color: green">Low Risk of Heart Disease</h3>
-    {% endif %}
-
-    <a href="/">Back</a>
+            <a href="/" class="btn btn-secondary mt-3">← Back</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
